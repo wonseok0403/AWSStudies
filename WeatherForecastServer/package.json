@@ -1,0 +1,12 @@
+{
+  "name": "weather-forecast-server",
+  "version": "0.0.0",
+  "description": "WeatherForecastServer",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "systeminformation": "^3.45.5"
+  }
+}
