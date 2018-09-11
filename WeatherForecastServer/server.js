@@ -15,9 +15,12 @@ app.use(bodyparser.urlencoded({
 }));
 app.get('/api/v1/serverstate', async (req, res) => {
     console.log('okay!');
-    answer = await si.cpu();
+    answer = await si.mem();
     console.log(answer);
-    res.json(answer);
+    res.json({
+        answer: answer,
+        server: "localhost"
+    });
 });
 
 function result() {
