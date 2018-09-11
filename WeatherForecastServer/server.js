@@ -1,25 +1,29 @@
 const si = require('systeminformation');
+const http = require('http');
+const express = require('express');
+const app = express();
+const bodyparser = require('body-parser');
+var server = http.createServer(function (req, res) {
+    //
+});
 
-const result = async () => {
-    await si.cpu(function (data) {
-        console.log('CPU-information : ');
-        console.log(data);
-    })
+app.listen(1685, () => {
+    console.log('web api is running on 1685');
+});
+app.use(bodyparser.urlencoded({
+    extended: true
+}));
+app.get('/api/v1/serverstate', async (req, res) => {
+    console.log('okay!');
+    answer = await si.cpu();
+    console.log(answer);
+    res.json(answer);
+});
 
-    await si.mem(function (data) {
-        console.log('mem-information : ');
-        console.log(data);
-    })
-
-    await si.cpuTemperature(function (data) {
-        console.log('temp-information : ');
-        console.log(data);
-    })
-
-    await si.getAllData(function (data) {
+function result() {
+    
+    si.getAllData(function (data) {
         console.log('all-information : ');
-        console.log(data);
+        return data;
     })
 }
-
-result();
