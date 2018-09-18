@@ -14,7 +14,7 @@ app.use(bodyparser.urlencoded({
     extended: true
 }));
 app.get('/api/v1/serverstate', async (req, res) => {
-    console.log('okay!!!!');
+    console.log('okay!!!!!');
     answer = await si.mem();
     console.log(answer);
     res.json({
